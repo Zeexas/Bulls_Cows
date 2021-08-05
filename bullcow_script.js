@@ -13,13 +13,31 @@ let vm = new Vue({
             invalid: false,
             win: true,
             english: true,
+            rules: false,
         }
     },
     mounted() {
         this.draw_moves();
     },
+    
+    updated() {
+        if (this.secret === '') {
+            this.$refs.check_num.style.backgroundColor = 'lightsteelblue';
+        } else {
+            this.$refs.check_num.style.backgroundColor = 'rgba(0, 100, 220, 0.8)';
+        }
+    },
 
     methods: {
+        switcher() {
+            if (this.rules === false) {
+                this.rules = true;
+            } else {
+                this.rules = false;
+            }
+            
+        },
+
         draw_moves() {
             for (let i = 0; i < this.t_rows; i++) {
                 this.moves.push({num: '', bulls: '', cows: ''});
