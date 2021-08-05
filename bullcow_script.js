@@ -6,27 +6,20 @@ let vm = new Vue({
             nums_mess: [],
             secret: '',
             guess: '',
-            t_rows: 10,
+            t_rows: 5,
             count: 0,
             moves: [],
             render: true,
             invalid: false,
             win: true,
             english: true,
-            
-
         }
     },
     mounted() {
-        // this.error_message();
         this.draw_moves();
     },
 
     methods: {
-        // error_message() {
-        //     let message = this.$refs.input_num;
-        //     message.oninvalid = message.setCustomValidity('Only 4 digits all different');
-        // }
         draw_moves() {
             for (let i = 0; i < this.t_rows; i++) {
                 this.moves.push({num: '', bulls: '', cows: ''});
@@ -45,12 +38,10 @@ let vm = new Vue({
             }
             this.nums_mess = numbers;
             this.secret = this.nums_mess.slice(0, 4).join('');
-            // console.log(this.nums_mess);
-            console.log(this.secret);
-
+            // console.log(this.secret);
             this.guess = "";
             this.count = 0;
-            this.t_rows = 10;
+            this.t_rows = 5;
             this.moves = [];
             this.draw_moves();
             this.inputFocus();
@@ -85,8 +76,12 @@ let vm = new Vue({
             if (secret === this.guess) {
                 this.win = true;
                 this.$refs.check_num.style.backgroundColor = 'lightgrey';
-                this.moves[this.count]["num"] = 'Congratulations!!!';
-                console.log('You win!');
+                if (this.english === true) {
+                    this.moves[this.count]["num"] = 'Congratulations!!!';
+                } else {
+                    this.moves[this.count]["num"] = 'Поздравляем!!!';
+                }
+                // console.log('You win!');
             }
 
             this.rerender();
