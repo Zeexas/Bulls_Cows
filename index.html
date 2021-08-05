@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()"/>
+    <title>Bulls'n'Cows</title>
+    <link rel="stylesheet" href="bullcow_style.css">
+
+
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"> -->
+
+
+</head>
+<body>
+    <div id="app" v-cloak>
+        <div class="title">
+            <span v-if="english">Bulls and Cows</span>
+            <span v-else>Быки и Коровы</span>
+        </div>
+        <button @click="new_game" class="new_game">
+            <span v-if="english">New<br>game</span>
+            <span v-else>Новая<br>игра</span>
+        </button>
+
+        <audio ref="music" src="kalambur-bar.mp3" loop></audio>
+        
+        <div class="field">
+            <div v-if="invalid" class="invalidMessage">
+                <span v-if="english">Please, enter 4-digit (all different) number</span>
+                <span v-else>Введите 4-значное число с разными цифрами</span>
+            </div>
+            <div class="deed">
+                <input
+                    type="text"
+                    ref="input_num"
+                    class="input_num"
+                    v-model="guess"
+                    @keyup.enter="check_num"
+                    >
+                <button
+                    ref="check_num"
+                    class="check_btn"
+                    @click="check_num"
+                    :disabled="win"
+                    >
+                    <span v-if="english">Make a move</span>
+                    <span v-else>Ваш ход</span>
+                </button>
+                <div
+                    ref="play"
+                    class="play feature"
+                    @click="play"
+                    >
+                </div>
+                <div
+                    ref="language"
+                    class="language feature"
+                    @click="language"
+                    >
+                    <span v-if="english" ref="eng" class="lang eng">eng</span>
+                    <span v-else ref="ru" class="lang ru">рус</span>
+                </div>
+            </div>
+    
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <span v-if="english">Guess</span>
+                            <span v-else>Число</span>
+                        </th>
+                        <th>
+                            <span v-if="english">Bulls</span>
+                            <span v-else>Быки</span>
+                        </th>
+                        <th>
+                            <span v-if="english">Cows</span>
+                            <span v-else>Коровы</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody v-if="render">
+                    <tr v-for="(move, i) in moves" :class="i" :key="i">
+                        <td class="t_guess">{{ move.num }}</td>
+                        <td class="t_bulls">{{ move.bulls }}</td>
+                        <td class="t_cows">{{ move.cows }}</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="bullcow_script.js"></script>
+</body>
+</html>
