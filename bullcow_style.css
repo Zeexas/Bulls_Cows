@@ -174,7 +174,7 @@ button {
 }
 
 .field {
-    margin-top: 5em;
+    margin-top: 6em;
     position: relative;
 }
 
@@ -205,16 +205,18 @@ tbody tr {
     color: olivedrab;
 }
 
-tbody tr td:nth-child(2) {
+/* tbody tr td:nth-child(2) {
     border-left: 2px dashed gainsboro;
     border-right: 2px dashed gainsboro;
-}
+} */
 
 tbody tr td:nth-child(1),
-tbody tr td:nth-child(2),
 tbody tr td:nth-child(3) {
-    background-color: lemonchiffon;
-    
+    background-color: lemonchiffon;    
+}
+
+tbody tr td:nth-child(2) {
+    background-color: honeydew;    
 }
 
 @media (max-width: 1024px) {
@@ -230,13 +232,13 @@ tbody tr td:nth-child(3) {
     }
     .input_num {
         width: 5em;
-        font-size: 4vw;
+        font-size: 5vw;
         padding: 0.3em 0.5em;
         margin-right: 2vw;
         border-radius: 0.3em;
     }
     .invalidMessage {
-        top: -5%;
+        top: -9%;
     }
     .invalidMessage span {
         font-size: 2vw;
@@ -245,22 +247,22 @@ tbody tr td:nth-child(3) {
         width: 15vw;
         height: 15vw;
         font-size: 3vw;
-        top: 3vw;
-        right: 3vw;
+        top: 1vw;
+        right: 1vw;
     }
     .check_btn {
         padding: 1.5vw 3vw;
-        font-size: 3vw;
+        font-size: 4vw;
     }
     .play {
-        width: 6vw;
-        height: 6vw;
+        width: 7.5vw;
+        height: 7.5vw;
         margin-left: 3vw;
     }
 
     .language {
-        width: 6vw;
-        height: 6vw;
+        width: 7.5vw;
+        height: 7.5vw;
         font-size: 2vw;
     }
 
@@ -274,7 +276,7 @@ tbody tr td:nth-child(3) {
         font-size: 4vw;
     }
     .field {
-        margin-top: 7vw;
+        margin-top: 8vw;
     }
 }
 
