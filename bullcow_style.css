@@ -18,7 +18,7 @@ body {
     --button-theme: rgba(0, 100, 220, 0.8);
     --button-light: dodgerblue;
     --olive-theme: rgba(107, 142, 35, 0.5);
-    --app-theme: rgba(173, 235, 173, 0.6);
+    --app-theme: rgba(173, 235, 173, 0.7);
     --font-main: 'Delius', 'Trebuchet MS', Arial, sans-serif;
     font-family: var(--font-main);
 }
