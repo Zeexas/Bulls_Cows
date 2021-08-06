@@ -57,6 +57,7 @@
                     class="check_btn"
                     @click="check_num"
                     :disabled="win"
+                    :style="disable_btn"
                     >
                     <span v-if="english">Make a move</span>
                     <span v-else>Ваш ход</span>
@@ -103,6 +104,19 @@
                     
                 </tbody>
             </table>
+
+
+            <!-- <div class="assist">
+                <div class="digit" v-for="num in nums">{{ num }}</div>
+            </div>
+            <br> -->
+            <div class="assist">
+                <label v-for="(num, i) in nums" class="digit" @click="digit_help($event)">
+                    <input type="checkbox" :id="i" :value="num">
+                {{ num }}
+                </label>
+            </div>
+            
         </div>
         <!-- game description field -->
         <div v-else class="about">

@@ -20,14 +20,6 @@ let vm = new Vue({
         this.draw_moves();
     },
     
-    updated() {
-        if (this.secret === '') {
-            this.$refs.check_num.style.backgroundColor = 'lightsteelblue';
-        } else {
-            this.$refs.check_num.style.backgroundColor = 'rgba(0, 100, 220, 0.8)';
-        }
-    },
-
     methods: {
         switcher() {
             if (this.rules === false) {
@@ -95,9 +87,9 @@ let vm = new Vue({
                 this.win = true;
                 this.$refs.check_num.style.backgroundColor = 'lightgrey';
                 if (this.english === true) {
-                    this.moves[this.count]["num"] = 'Congratulations!!!';
+                    this.moves[this.count]["num"] = 'Mooooo!!!';
                 } else {
-                    this.moves[this.count]["num"] = 'Поздравляем!!!';
+                    this.moves[this.count]["num"] = 'Мууууу!!!';
                 }
                 // console.log('You win!');
             }
@@ -152,6 +144,19 @@ let vm = new Vue({
         inputFocus() {
             this.$refs.input_num.focus();
         },
+
+        digit_help(e) {
+            let num = e.target;
+            if (!num.checked) {
+                num.checked = true;
+                num.style.backgroundColor = 'rgba(107, 142, 35, 0.5)';
+                num.style.color = 'white';
+            } else {
+                num.checked = false;
+                num.style.backgroundColor = 'lemonchiffon';
+                num.style.color = 'olivedrab';
+            }
+        },
         
         play() {
             let audio = this.$refs.music;
@@ -175,4 +180,18 @@ let vm = new Vue({
             }
         },
     },
+
+    computed: {
+        disable_btn() {
+            if (this.secret === '') {
+                return {
+                    backgroundColor: 'lightsteelblue',
+                }
+            } else {
+                return {
+                    backgroundColor: 'rgba(0, 100, 220, 0.8)',
+                }
+            }
+        }
+    }
 })
