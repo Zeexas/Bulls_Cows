@@ -87,9 +87,9 @@ let vm = new Vue({
                 this.win = true;
                 this.$refs.check_num.style.backgroundColor = 'lightgrey';
                 if (this.english === true) {
-                    this.moves[this.count]["num"] = 'Mooooo!!!';
+                    this.moves[this.count]["num"] = 'Moo-o-o!!!';
                 } else {
-                    this.moves[this.count]["num"] = 'Мууууу!!!';
+                    this.moves[this.count]["num"] = 'Муу-у-у!!!';
                 }
                 // console.log('You win!');
             }
