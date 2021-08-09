@@ -82,6 +82,10 @@
                 <thead>
                     <tr>
                         <th>
+                            <span v-if="english">#</span>
+                            <span v-else>№</span>
+                        </th>
+                        <th>
                             <span v-if="english">Guess</span>
                             <span v-else>Число</span>
                         </th>
@@ -97,6 +101,9 @@
                 </thead>
                 <tbody v-if="render">
                     <tr v-for="(move, i) in moves" :class="i" :key="i">
+                        <td class="t_count">
+                            <span v-if="move.bulls !== ''">{{ i + 1 + '.' }}</span>
+                        </td>
                         <td class="t_guess">{{ move.num }}</td>
                         <td class="t_bulls">{{ move.bulls }}</td>
                         <td class="t_cows">{{ move.cows }}</td>
