@@ -48,7 +48,6 @@ let vm = new Vue({
             }
             this.nums_mess = numbers;
             this.secret = this.nums_mess.slice(0, 4).join('');
-            // console.log(this.secret);
             this.guess = "";
             this.count = 0;
             this.t_rows = 5;
@@ -58,6 +57,10 @@ let vm = new Vue({
             this.win = false;
             this.invalid = false;
             this.$refs.check_num.style.backgroundColor = 'rgba(0, 100, 220, 0.8)';
+            this.$refs.digit.forEach(element => {
+                element.style.background = 'lemonchiffon';
+                element.style.color = 'olivedrab';
+            });
         },
         check_num() {
             if (!this.numValid()) {
@@ -91,7 +94,6 @@ let vm = new Vue({
                 } else {
                     this.moves[this.count]["num"] = 'Муу-у-у!!!';
                 }
-                // console.log('You win!');
             }
 
             this.rerender();
@@ -145,19 +147,19 @@ let vm = new Vue({
             this.$refs.input_num.focus();
         },
 
-        digit_help(e) {
+        digit_color(e) {
             let num = e.target;
-            if (!num.checked) {
-                num.checked = true;
-                num.style.backgroundColor = 'rgba(107, 142, 35, 0.5)';
-                num.style.color = 'white';
+            if (num.style.background === 'lemonchiffon') {
+                num.style.background = 'rgba(107, 142, 35, 0.5)';
+                num.style.color = '#fff';
+            } else if (num.style.background === 'rgba(107, 142, 35, 0.5)') {
+                num.style.background = 'crimson';
             } else {
-                num.checked = false;
-                num.style.backgroundColor = 'lemonchiffon';
+                num.style.background = 'lemonchiffon';
                 num.style.color = 'olivedrab';
             }
         },
-        
+
         play() {
             let audio = this.$refs.music;
             if (audio.paused) {
@@ -192,6 +194,13 @@ let vm = new Vue({
                     backgroundColor: 'rgba(0, 100, 220, 0.8)',
                 }
             }
-        }
+        },
+
+        lemon() {
+            return {
+                background: 'lemonchiffon',
+                color: 'olivedrab',
+            }
+        },
     }
 })

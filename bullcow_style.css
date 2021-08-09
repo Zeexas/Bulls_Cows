@@ -32,8 +32,6 @@ body {
     min-height: 100vh;
     padding: 4em 0;
     margin: 0 auto;
-    /* background-color: rgba(60, 179, 113, 0.2); */
-    /* background-color: rgba(50, 205, 50, 0.4); */
     background-color: var(--app-theme);
     position: relative;
     box-shadow: 0 0 2em 0.5em rgba(0, 0, 0, 0.5);
@@ -279,11 +277,9 @@ input[type=checkbox] {
     height: 2em;
     line-height: 2em;
     font-size: 2em;
-    color: olivedrab;
     border-radius: 0.3em;
     cursor: pointer;
     border: 2px solid var(--olive-theme);
-    background-color: lemonchiffon;
 }
 
 @media (max-width: 1024px) {
@@ -328,7 +324,7 @@ input[type=checkbox] {
         border-radius: 0.3em;
     }
     .invalidMessage {
-        top: -9%;
+        top: -6%;
     }
     .invalidMessage span {
         font-size: 2vw;
@@ -363,7 +359,7 @@ input[type=checkbox] {
         font-size: 5vw;
     }
     tbody tr {
-        font-size: calc(2vw + 1.5em);
+        font-size: calc(2vw + 1.2em);
     }
     .field {
         margin-top: 8vw;

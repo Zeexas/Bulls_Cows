@@ -73,8 +73,8 @@
                     class="language feature"
                     @click="language"
                     >
-                    <span v-if="english" ref="eng" class="lang eng">eng</span>
-                    <span v-else ref="ru" class="lang ru">рус</span>
+                    <span v-if="english" ref="eng" class="lang eng">рус</span>
+                    <span v-else ref="ru" class="lang ru">eng</span>
                 </div>
             </div>
     
@@ -105,16 +105,10 @@
                 </tbody>
             </table>
 
-
-            <!-- <div class="assist">
-                <div class="digit" v-for="num in nums">{{ num }}</div>
-            </div>
-            <br> -->
             <div class="assist">
-                <label v-for="(num, i) in nums" class="digit" @click="digit_help($event)">
-                    <input type="checkbox" :id="i" :value="num">
-                {{ num }}
-                </label>
+                <div ref="digit" class="digit" v-for="num in nums" :style="lemon" @click="digit_color($event)"
+                    >{{ num }}
+                </div>
             </div>
             
         </div>
