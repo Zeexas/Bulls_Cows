@@ -185,6 +185,7 @@ button {
 .check_btn {
     background-color: var(--button-theme);
     color: #fff;
+    width: 8em;
     font-size: 1.5em;
     border-radius: 5px;
     padding: 0.5em 1em;
